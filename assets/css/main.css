@@ -1,0 +1,331 @@
+/* ==============================================================
+   URVARA GREENS – CLEAN PRODUCTION CSS
+   ==============================================================
+*/
+
+/* -----------------------------
+   Fonts & Variables
+------------------------------*/
+:root {
+  --default-font: "Roboto", system-ui, sans-serif;
+  --heading-font: "Amatic SC", cursive;
+  --nav-font: "Inter", sans-serif;
+
+  --background-color: #ffffff;
+  --default-color: #2f3e2f;
+  --heading-color: #1b5e20;
+  --accent-color: #2e7d32;
+  --surface-color: #f4f8f4;
+  --contrast-color: #ffffff;
+
+  --nav-color: #3a5a40;
+  --nav-hover-color: #2e7d32;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--default-font);
+  color: var(--default-color);
+  background: var(--background-color);
+}
+
+/* -----------------------------
+   General
+------------------------------*/
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--heading-font);
+  color: var(--heading-color);
+}
+
+/* -----------------------------
+   Header & Navigation
+------------------------------*/
+.header {
+  background: #fff;
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.site-logo {
+  height: 64px;
+}
+
+@media (max-width: 768px) {
+  .site-logo { height: 48px; }
+}
+
+.navmenu ul {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.navmenu a {
+  font-family: var(--nav-font);
+  font-size: 15px;
+  color: var(--nav-color);
+  position: relative;
+}
+
+.navmenu a.active,
+.navmenu a:hover {
+  color: var(--nav-hover-color);
+}
+
+.navmenu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--nav-hover-color);
+  transition: 0.3s;
+}
+
+.navmenu a.active::after,
+.navmenu a:hover::after {
+  width: 100%;
+}
+
+.btn-getstarted {
+  background: var(--accent-color);
+  color: #fff;
+  padding: 8px 22px;
+  border-radius: 30px;
+  font-size: 14px;
+  box-shadow: 0 6px 18px rgba(46,125,50,0.35);
+}
+
+/* -----------------------------
+   Sections
+------------------------------*/
+.section {
+  padding: 60px 0;
+}
+
+.light-background {
+  background: #f1f8f4;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: var(--default-font);
+}
+
+.section-title p {
+  font-size: 42px;
+}
+
+.section-title p .description-title {
+  color: var(--accent-color);
+}
+
+/* -----------------------------
+   Hero
+------------------------------*/
+.hero {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f1f8f4 0%, #ffffff 60%);
+}
+
+.hero-text {
+  animation: slideLeft 1.2s ease forwards;
+}
+
+.hero-title {
+  font-size: 54px;
+  line-height: 1.2;
+}
+
+.hero-title span {
+  color: var(--accent-color);
+}
+
+.hero-subtext {
+  font-size: 18px;
+  margin: 20px 0 30px;
+}
+
+.hero-image {
+  animation: slideRight 1.4s ease forwards;
+}
+
+.hero-image img {
+  max-width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+}
+
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 36px; }
+  .hero-image img { max-height: 260px; }
+}
+
+/* -----------------------------
+   About
+------------------------------*/
+.about img {
+  border-radius: 10px;
+}
+
+.about ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.about ul li {
+  margin-bottom: 10px;
+}
+
+.about ul i {
+  color: var(--accent-color);
+  margin-right: 6px;
+}
+
+/* -----------------------------
+   Why Us
+------------------------------*/
+.why-box {
+  background: var(--accent-color);
+  color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.icon-box {
+  background: var(--surface-color);
+  text-align: center;
+  padding: 30px;
+  border-radius: 14px;
+  height: 100%;
+}
+
+.icon-box i {
+  font-size: 32px;
+  color: var(--accent-color);
+  margin-bottom: 16px;
+}
+
+/* -----------------------------
+   Microgreens Cards
+------------------------------*/
+.micro-card {
+  background: var(--surface-color);
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.micro-card:hover {
+  transform: translateY(-6px);
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+}
+
+.micro-card img {
+  max-width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 576px) {
+  .micro-card img {
+    max-width: 110px;
+    height: 110px;
+  }
+}
+
+/* -----------------------------
+   Farm & Training
+------------------------------*/
+#events img {
+  transition: transform 0.4s;
+}
+
+#events img:hover {
+  transform: scale(1.03);
+}
+
+/* -----------------------------
+   Contact
+------------------------------*/
+.contact p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* -----------------------------
+   Footer
+------------------------------*/
+.footer-organic {
+  background: linear-gradient(180deg, #0f2f1d, #123f27);
+  padding: 70px 0 40px;
+  text-align: center;
+  color: #e6f3ea;
+}
+
+.footer-organic .footer-logo {
+  width: 54px;
+  margin-bottom: 12px;
+}
+
+.footer-organic h3 {
+  color: #fff;
+}
+
+.footer-tagline {
+  font-size: 14px;
+  color: #b7d9c3;
+}
+
+.footer-line {
+  width: 90px;
+  height: 3px;
+  margin: 20px auto;
+  background: linear-gradient(to right, transparent, #4caf50, transparent);
+}
+
+.footer-note {
+  font-size: 13px;
+  color: #9fd3b2;
+}
