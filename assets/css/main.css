@@ -537,3 +537,202 @@ section {
     scroll-margin-top: 70px;
   }
 }
+
+/* ===============================
+   Growing Kits – Modern Cards
+================================ */
+
+.kit-card {
+  background: var(--surface-color);
+  border-radius: 16px;
+  padding: 22px 16px;
+  text-align: center;
+  height: 100%;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+}
+
+.kit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(46,125,50,0.18);
+  background: color-mix(in srgb, var(--accent-color), transparent 94%);
+}
+
+.kit-icon {
+  font-size: 34px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.kit-card h4 {
+  font-size: 18px;
+  margin-bottom: 6px;
+  font-family: var(--default-font);
+}
+
+.kit-card p {
+  font-size: 14px;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin: 0;
+}
+
+/* Mobile fine-tuning */
+@media (max-width: 576px) {
+  .kit-card {
+    padding: 18px 14px;
+  }
+
+  .kit-card h4 {
+    font-size: 16px;
+  }
+
+  .kit-icon {
+    font-size: 30px;
+  }
+}
+/* ===============================
+   Seeds – Modern Mini Cards
+================================ */
+/* ===============================
+   Seeds – Compact Pills
+================================ */
+
+/* ===============================
+   Seeds – 3x3 Grid
+================================ */
+
+.seed-intro {
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 26px;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
+
+.seed-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.seed-cell {
+  background: #ffffff;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+  border-radius: 14px;
+  padding: 16px 10px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--heading-color);
+  transition: all 0.3s ease;
+}
+
+.seed-cell:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  transform: translateY(-4px);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .seed-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 520px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .seed-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===============================
+   Training Steps – Circular Flow
+================================ */
+
+.steps-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.step-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 40px 26px 30px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+
+/* Decorative circle arc */
+.step-card::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 6px solid color-mix(in srgb, var(--accent-color), transparent 65%);
+  top: -110px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Step number circle */
+.step-circle {
+  width: 64px;
+  height: 64px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--accent-color);
+  margin: 0 auto 16px;
+  box-shadow: 0 10px 26px rgba(46,125,50,0.25);
+  position: relative;
+  z-index: 2;
+}
+
+.step-card h4 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.step-card p {
+  font-size: 14px;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  line-height: 1.6;
+}
+
+/* Hover effect */
+.step-card:hover {
+  transform: translateY(-6px);
+  transition: 0.3s ease;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .steps-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .steps-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .step-card::before {
+    width: 180px;
+    height: 180px;
+    top: -90px;
+  }
+}
