@@ -358,3 +358,182 @@ h1, h2, h3, h4 {
 .whatsapp-float i {
   line-height: 0;
 }
+/* ==================================================
+   MOBILE PERFORMANCE & UX OPTIMIZATION
+   ================================================== */
+
+/* ---------- Global Image Stability ---------- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- Reduce Heavy Animations on Mobile ---------- */
+@media (max-width: 768px) {
+  .hero-text,
+  .hero-image {
+    animation-duration: 0.8s;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
+
+/* ---------- Hero Section Mobile Tuning ---------- */
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 50px 0;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 34px;
+  }
+
+  .hero-subtext {
+    font-size: 16px;
+    margin: 16px 0 24px;
+  }
+
+  .hero-image img {
+    max-height: 240px;
+    margin-top: 24px;
+  }
+}
+
+/* ---------- Navigation Mobile Tap Area ---------- */
+@media (max-width: 768px) {
+  .navmenu ul {
+    gap: 16px;
+  }
+
+  .navmenu a {
+    font-size: 16px;
+    padding: 6px 2px;
+  }
+}
+
+/* ---------- Section Spacing (Mobile) ---------- */
+@media (max-width: 576px) {
+  .section {
+    padding: 45px 0;
+  }
+
+  .section-title p {
+    font-size: 30px;
+  }
+}
+
+/* ---------- Microgreens Cards Mobile ---------- */
+@media (max-width: 576px) {
+  .micro-card {
+    padding: 14px 10px;
+  }
+
+  .micro-card img {
+    max-width: 100px;
+    height: 100px;
+  }
+
+  .micro-card h4 {
+    font-size: 16px;
+  }
+}
+
+/* ---------- About & Content Text ---------- */
+@media (max-width: 576px) {
+  .about p,
+  .contact p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}
+
+/* ---------- WhatsApp Button Mobile ---------- */
+@media (max-width: 576px) {
+  .whatsapp-float {
+    width: 52px;
+    height: 52px;
+    font-size: 26px;
+    bottom: 18px;
+    right: 18px;
+  }
+}
+
+/* ---------- Footer Mobile ---------- */
+@media (max-width: 576px) {
+  .footer-organic {
+    padding: 60px 20px 35px;
+  }
+
+  .footer-organic h3 {
+    font-size: 22px;
+  }
+
+  .footer-note {
+    font-size: 12px;
+  }
+}
+/* ==================================================
+   Hobby Growers & Seeds Sections
+================================================== */
+
+.info-card {
+  background: var(--surface-color);
+  border-radius: 16px;
+  padding: 30px 24px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+.info-card h4 {
+  font-family: var(--default-font);
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: var(--heading-color);
+}
+
+.info-card p {
+  margin: 6px 0;
+  font-size: 15px;
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .info-card {
+    margin-top: 24px;
+    padding: 22px 18px;
+  }
+}
+/* ==================================================
+   FOOTER LOGO ALIGNMENT FIX
+================================================== */
+
+.footer-organic .footer-logo {
+  display: inline-block;   /* restores center alignment */
+  margin: 0 auto 12px;     /* centers horizontally */
+}
+
+.footer-organic {
+  text-align: center;      /* ensures everything stays centered */
+}
+/* ==================================================
+   FIX: Anchor Scroll Offset for Sticky Header
+================================================== */
+
+/* Desktop header height */
+section {
+  scroll-margin-top: 90px;
+}
+
+/* Mobile header height */
+@media (max-width: 768px) {
+  section {
+    scroll-margin-top: 70px;
+  }
+}
