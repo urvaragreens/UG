@@ -33,17 +33,22 @@
       <img src="assets/img/logo.png" alt="Urvara Greens" class="site-logo">
     </a>
 
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#microgreens">Products</a></li>
-        <li><a href="#growing-kits">Gorwing Kits</a></li>
-        <li><a href="#seeds">Seeds</a></li>
-        <li><a href="#events">Farm & Training</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <nav id="navmenu" class="navmenu">
+  <ul>
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#microgreens">Products</a></li>
+    <li><a href="#growing-kits">Growing Kits</a></li>
+    <li><a href="#seeds">Seeds</a></li>
+    <li><a href="#events">Farm & Training</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Mobile Toggle -->
+<div class="mobile-nav-toggle">
+  <i class="bi bi-list"></i>
+</div>
 
     <a class="btn-getstarted" href="#contact">Order Now</a>
   </div>
@@ -465,6 +470,37 @@ document.addEventListener("DOMContentLoaded", () => {
   activateMenu();
 });
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.querySelector(".mobile-nav-toggle");
+  const nav = document.querySelector(".navmenu");
+
+  if (!toggle || !nav) {
+    console.warn("Mobile nav elements not found");
+    return;
+  }
+
+  toggle.addEventListener("click", function () {
+    nav.classList.toggle("active");
+    document.body.classList.toggle("nav-open");
+
+    toggle.innerHTML = nav.classList.contains("active")
+      ? '<i class="bi bi-x"></i>'
+      : '<i class="bi bi-list"></i>';
+  });
+
+  // Close menu on link click
+  document.querySelectorAll(".navmenu a").forEach(link => {
+    link.addEventListener("click", function () {
+      nav.classList.remove("active");
+      document.body.classList.remove("nav-open");
+      toggle.innerHTML = '<i class="bi bi-list"></i>';
+    });
+  });
+});
+</script>
+
 
 </body>
 </html>

@@ -1,7 +1,7 @@
-/* ==============================================================
-   URVARA GREENS – CLEAN PRODUCTION CSS
-   ==============================================================
-*/
+/* ============================================================
+   URVARA GREENS – FINAL CLEAN PRODUCTION CSS
+   Mobile-first • Optimized • Conflict-free
+============================================================ */
 
 /* -----------------------------
    Fonts & Variables
@@ -22,6 +22,15 @@
   --nav-hover-color: #2e7d32;
 }
 
+/* -----------------------------
+   Base Reset
+------------------------------*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -31,31 +40,57 @@ body {
   font-family: var(--default-font);
   color: var(--default-color);
   background: var(--background-color);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* -----------------------------
-   General
+   Typography
 ------------------------------*/
+h1, h2, h3, h4 {
+  font-family: var(--heading-font);
+  color: var(--heading-color);
+}
+
 a {
   color: var(--accent-color);
   text-decoration: none;
-  transition: 0.3s;
+  transition: 0.25s;
 }
 
 a:hover {
   color: color-mix(in srgb, var(--accent-color), transparent 25%);
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--heading-font);
-  color: var(--heading-color);
+/* -----------------------------
+   Sections & Scroll Offset
+------------------------------*/
+.section {
+  padding: 60px 0;
+  scroll-margin-top: 90px;
+}
+
+.light-background {
+  background: #f1f8f4;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 45px 0;
+    scroll-margin-top: 70px;
+  }
 }
 
 /* -----------------------------
    Header & Navigation
 ------------------------------*/
 .header {
-  background: #fff;
+  background: #ffffff;
   padding: 16px 0;
   position: sticky;
   top: 0;
@@ -66,14 +101,10 @@ h1, h2, h3, h4 {
   height: 64px;
 }
 
-@media (max-width: 768px) {
-  .site-logo { height: 48px; }
-}
-
 .navmenu ul {
   display: flex;
-  list-style: none;
   gap: 24px;
+  list-style: none;
   margin: 0;
   padding: 0;
 }
@@ -85,8 +116,8 @@ h1, h2, h3, h4 {
   position: relative;
 }
 
-.navmenu a.active,
-.navmenu a:hover {
+.navmenu a:hover,
+.navmenu a.active {
   color: var(--nav-hover-color);
 }
 
@@ -101,49 +132,24 @@ h1, h2, h3, h4 {
   transition: 0.3s;
 }
 
-.navmenu a.active::after,
-.navmenu a:hover::after {
+.navmenu a:hover::after,
+.navmenu a.active::after {
   width: 100%;
 }
 
 .btn-getstarted {
   background: var(--accent-color);
-  color: #fff;
+  color: #ffffff;
   padding: 8px 22px;
   border-radius: 30px;
   font-size: 14px;
   box-shadow: 0 6px 18px rgba(46,125,50,0.35);
 }
 
-/* -----------------------------
-   Sections
-------------------------------*/
-.section {
-  padding: 60px 0;
-}
-
-.light-background {
-  background: #f1f8f4;
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.section-title h2 {
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-family: var(--default-font);
-}
-
-.section-title p {
-  font-size: 42px;
-}
-
-.section-title p .description-title {
-  color: var(--accent-color);
+/* Mobile header */
+@media (max-width: 768px) {
+  .site-logo { height: 48px; }
+  .btn-getstarted { display: none; }
 }
 
 /* -----------------------------
@@ -154,10 +160,6 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   background: linear-gradient(135deg, #f1f8f4 0%, #ffffff 60%);
-}
-
-.hero-text {
-  animation: slideLeft 1.2s ease forwards;
 }
 
 .hero-title {
@@ -174,124 +176,259 @@ h1, h2, h3, h4 {
   margin: 20px 0 30px;
 }
 
-.hero-image {
-  animation: slideRight 1.4s ease forwards;
-}
-
 .hero-image img {
-  max-width: 100%;
   max-height: 420px;
   object-fit: contain;
 }
 
-@keyframes slideLeft {
-  from { opacity: 0; transform: translateX(-40px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideRight {
-  from { opacity: 0; transform: translateX(40px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
+/* Mobile hero */
 @media (max-width: 768px) {
-  .hero-title { font-size: 36px; }
-  .hero-image img { max-height: 260px; }
-}
+  .hero {
+    min-height: auto;
+    text-align: center;
+  }
 
-/* -----------------------------
-   About
-------------------------------*/
-.about img {
-  border-radius: 10px;
-}
-
-.about ul {
-  padding-left: 0;
-  list-style: none;
-}
-
-.about ul li {
-  margin-bottom: 10px;
-}
-
-.about ul i {
-  color: var(--accent-color);
-  margin-right: 6px;
-}
-
-/* -----------------------------
-   Why Us
-------------------------------*/
-.why-box {
-  background: var(--accent-color);
-  color: #fff;
-  padding: 30px;
-  border-radius: 12px;
-}
-
-.icon-box {
-  background: var(--surface-color);
-  text-align: center;
-  padding: 30px;
-  border-radius: 14px;
-  height: 100%;
-}
-
-.icon-box i {
-  font-size: 32px;
-  color: var(--accent-color);
-  margin-bottom: 16px;
-}
-
-/* -----------------------------
-   Microgreens Cards
-------------------------------*/
-.micro-card {
-  background: var(--surface-color);
-  border-radius: 14px;
-  padding: 18px;
-  text-align: center;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-  transition: 0.3s;
-}
-
-.micro-card:hover {
-  transform: translateY(-6px);
-  background: color-mix(in srgb, var(--accent-color), transparent 92%);
-}
-
-.micro-card img {
-  max-width: 140px;
-  height: 140px;
-  object-fit: contain;
-  margin-bottom: 12px;
-}
-
-@media (max-width: 576px) {
-  .micro-card img {
-    max-width: 110px;
-    height: 110px;
+  .hero-title { font-size: 34px; }
+  .hero-subtext { font-size: 16px; }
+  .hero-image img {
+    max-height: 240px;
+    margin-top: 24px;
   }
 }
 
 /* -----------------------------
-   Farm & Training
+   About (Modern)
 ------------------------------*/
-#events img {
-  transition: transform 0.4s;
+.about-modern {
+  background: linear-gradient(135deg, #ffffff, #f1f8f4);
 }
 
-#events img:hover {
-  transform: scale(1.03);
+.about-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 60px;
+}
+
+.about-badge {
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  color: var(--accent-color);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  margin-bottom: 14px;
+  display: inline-block;
+}
+
+.about-header h2 {
+  font-size: 42px;
+}
+
+.about-header p {
+  font-size: 16px;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
+
+.about-values {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.about-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 26px 20px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+
+@media (max-width: 992px) {
+  .about-values { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 576px) {
+  .about-values { grid-template-columns: 1fr; }
+  .about-header h2 { font-size: 32px; }
 }
 
 /* -----------------------------
-   Contact
+   Microgreens – Compact Grid
 ------------------------------*/
-.contact p {
-  font-size: 16px;
-  margin-bottom: 10px;
+.micro-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  justify-items: center;
+}
+
+.micro-card {
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--surface-color);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+}
+
+.micro-img img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 4px;
+}
+
+.micro-info h4 {
+  font-size: 15px;
+  margin: 0 0 4px;
+}
+
+.micro-info p {
+  font-size: 12.5px;
+  margin: 0;
+}
+
+/* Color themes */
+.bg-sunflower { background: #f4f9f2; }
+.bg-wheat { background: #eef7f1; }
+.bg-mustard { background: #fff8e6; }
+.bg-radish { background: #fdeff2; }
+.bg-beet { background: #f7eef6; }
+.bg-cabbage { background: #f2effa; }
+
+@media (max-width: 992px) {
+  .micro-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 576px) {
+  .micro-grid { grid-template-columns: 1fr; }
+}
+
+/* -----------------------------
+   Growing Kits
+------------------------------*/
+.kit-card {
+  background: var(--surface-color);
+  border-radius: 16px;
+  padding: 22px 16px;
+  text-align: center;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+}
+
+.kit-icon {
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+
+/* -----------------------------
+   Seeds
+------------------------------*/
+.seed-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.seed-cell {
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .seed-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .seed-grid { grid-template-columns: 1fr; }
+}
+
+/* -----------------------------
+   Training Steps
+------------------------------*/
+.steps-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.step-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 40px 26px 30px;
+  text-align: center;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.06);
+}
+
+.step-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+  margin: 0 auto 16px;
+  box-shadow: 0 10px 26px rgba(46,125,50,0.25);
+}
+
+@media (max-width: 992px) {
+  .steps-wrapper { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 576px) {
+  .steps-wrapper { grid-template-columns: 1fr; }
+}
+
+/* -----------------------------
+   Contact – Business Card
+------------------------------*/
+.contact-card {
+  max-width: 820px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #ffffff, #f1f8f4);
+  border-radius: 18px;
+  padding: 40px 50px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.06);
+}
+
+.contact-left {
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid rgba(0,0,0,0.06);
+  padding-right: 30px;
+}
+
+.contact-right {
+  flex: 1.2;
+}
+
+.contact-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 768px) {
+  .contact-card {
+    flex-direction: column;
+    padding: 30px 26px;
+  }
+
+  .contact-left {
+    border-right: none;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    padding-bottom: 20px;
+  }
 }
 
 /* -----------------------------
@@ -304,34 +441,20 @@ h1, h2, h3, h4 {
   color: #e6f3ea;
 }
 
-.footer-organic .footer-logo {
+.footer-logo {
+  display: inline-block;
   width: 54px;
   margin-bottom: 12px;
-}
-
-.footer-organic h3 {
-  color: #fff;
-}
-
-.footer-tagline {
-  font-size: 14px;
-  color: #b7d9c3;
-}
-
-.footer-line {
-  width: 90px;
-  height: 3px;
-  margin: 20px auto;
-  background: linear-gradient(to right, transparent, #4caf50, transparent);
 }
 
 .footer-note {
   font-size: 13px;
   color: #9fd3b2;
 }
-/* ===============================
-   WhatsApp Floating Button
-================================ */
+
+/* -----------------------------
+   WhatsApp Button
+------------------------------*/
 .whatsapp-float {
   position: fixed;
   width: 56px;
@@ -345,117 +468,10 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.45);
+  box-shadow: 0 8px 20px rgba(37,211,102,0.45);
   z-index: 9999;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.whatsapp-float:hover {
-  transform: scale(1.1);
-  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6);
-}
-
-.whatsapp-float i {
-  line-height: 0;
-}
-/* ==================================================
-   MOBILE PERFORMANCE & UX OPTIMIZATION
-   ================================================== */
-
-/* ---------- Global Image Stability ---------- */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* ---------- Reduce Heavy Animations on Mobile ---------- */
-@media (max-width: 768px) {
-  .hero-text,
-  .hero-image {
-    animation-duration: 0.8s;
-  }
-
-  * {
-    transition: none !important;
-  }
-}
-
-/* ---------- Hero Section Mobile Tuning ---------- */
-@media (max-width: 768px) {
-  .hero {
-    min-height: auto;
-    padding: 50px 0;
-  }
-
-  .hero-text {
-    text-align: center;
-  }
-
-  .hero-title {
-    font-size: 34px;
-  }
-
-  .hero-subtext {
-    font-size: 16px;
-    margin: 16px 0 24px;
-  }
-
-  .hero-image img {
-    max-height: 240px;
-    margin-top: 24px;
-  }
-}
-
-/* ---------- Navigation Mobile Tap Area ---------- */
-@media (max-width: 768px) {
-  .navmenu ul {
-    gap: 16px;
-  }
-
-  .navmenu a {
-    font-size: 16px;
-    padding: 6px 2px;
-  }
-}
-
-/* ---------- Section Spacing (Mobile) ---------- */
-@media (max-width: 576px) {
-  .section {
-    padding: 45px 0;
-  }
-
-  .section-title p {
-    font-size: 30px;
-  }
-}
-
-/* ---------- Microgreens Cards Mobile ---------- */
-@media (max-width: 576px) {
-  .micro-card {
-    padding: 14px 10px;
-  }
-
-  .micro-card img {
-    max-width: 100px;
-    height: 100px;
-  }
-
-  .micro-card h4 {
-    font-size: 16px;
-  }
-}
-
-/* ---------- About & Content Text ---------- */
-@media (max-width: 576px) {
-  .about p,
-  .contact p {
-    font-size: 15px;
-    line-height: 1.6;
-  }
-}
-
-/* ---------- WhatsApp Button Mobile ---------- */
 @media (max-width: 576px) {
   .whatsapp-float {
     width: 52px;
@@ -465,625 +481,56 @@ img {
     right: 18px;
   }
 }
-
-/* ---------- Footer Mobile ---------- */
-@media (max-width: 576px) {
-  .footer-organic {
-    padding: 60px 20px 35px;
-  }
-
-  .footer-organic h3 {
-    font-size: 22px;
-  }
-
-  .footer-note {
-    font-size: 12px;
-  }
-}
 /* ==================================================
-   Hobby Growers & Seeds Sections
+   Mobile Collapsible Navigation
 ================================================== */
 
-.info-card {
-  background: var(--surface-color);
-  border-radius: 16px;
-  padding: 30px 24px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-}
-
-.info-card h4 {
-  font-family: var(--default-font);
-  font-size: 20px;
-  margin-bottom: 16px;
+/* Hide toggle on desktop */
+.mobile-nav-toggle {
+  display: none;
+  font-size: 30px;
   color: var(--heading-color);
+  cursor: pointer;
 }
 
-.info-card p {
-  margin: 6px 0;
-  font-size: 15px;
-}
-
-/* Mobile */
-@media (max-width: 576px) {
-  .info-card {
-    margin-top: 24px;
-    padding: 22px 18px;
-  }
-}
-/* ==================================================
-   FOOTER LOGO ALIGNMENT FIX
-================================================== */
-
-.footer-organic .footer-logo {
-  display: inline-block;   /* restores center alignment */
-  margin: 0 auto 12px;     /* centers horizontally */
-}
-
-.footer-organic {
-  text-align: center;      /* ensures everything stays centered */
-}
-/* ==================================================
-   FIX: Anchor Scroll Offset for Sticky Header
-================================================== */
-
-/* Desktop header height */
-section {
-  scroll-margin-top: 90px;
-}
-
-/* Mobile header height */
-@media (max-width: 768px) {
-  section {
-    scroll-margin-top: 70px;
-  }
-}
-
-/* ===============================
-   Growing Kits – Modern Cards
-================================ */
-
-.kit-card {
-  background: var(--surface-color);
-  border-radius: 16px;
-  padding: 22px 16px;
-  text-align: center;
-  height: 100%;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.06);
-  transition: all 0.3s ease;
-}
-
-.kit-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 30px rgba(46,125,50,0.18);
-  background: color-mix(in srgb, var(--accent-color), transparent 94%);
-}
-
-.kit-icon {
-  font-size: 34px;
-  display: inline-block;
-  margin-bottom: 12px;
-}
-
-.kit-card h4 {
-  font-size: 18px;
-  margin-bottom: 6px;
-  font-family: var(--default-font);
-}
-
-.kit-card p {
-  font-size: 14px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin: 0;
-}
-
-/* Mobile fine-tuning */
-@media (max-width: 576px) {
-  .kit-card {
-    padding: 18px 14px;
-  }
-
-  .kit-card h4 {
-    font-size: 16px;
-  }
-
-  .kit-icon {
-    font-size: 30px;
-  }
-}
-/* ===============================
-   Seeds – Modern Mini Cards
-================================ */
-/* ===============================
-   Seeds – Compact Pills
-================================ */
-
-/* ===============================
-   Seeds – 3x3 Grid
-================================ */
-
-.seed-intro {
-  text-align: center;
-  font-size: 15px;
-  margin-bottom: 26px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-}
-
-.seed-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-.seed-cell {
-  background: #ffffff;
-  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
-  border-radius: 14px;
-  padding: 16px 10px;
-  text-align: center;
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--heading-color);
-  transition: all 0.3s ease;
-}
-
-.seed-cell:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 92%);
-  transform: translateY(-4px);
-}
-
-/* Tablet */
-@media (max-width: 768px) {
-  .seed-grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 520px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-  .seed-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ===============================
-   Training Steps – Circular Flow
-================================ */
-
-.steps-wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.step-card {
-  background: #ffffff;
-  border-radius: 22px;
-  padding: 40px 26px 30px;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 14px 34px rgba(0,0,0,0.06);
-  overflow: hidden;
-}
-
-/* Decorative circle arc */
-.step-card::before {
-  content: "";
-  position: absolute;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  border: 6px solid color-mix(in srgb, var(--accent-color), transparent 65%);
-  top: -110px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Step number circle */
-.step-circle {
-  width: 64px;
-  height: 64px;
-  background: #ffffff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  font-size: 16px;
-  color: var(--accent-color);
-  margin: 0 auto 16px;
-  box-shadow: 0 10px 26px rgba(46,125,50,0.25);
-  position: relative;
-  z-index: 2;
-}
-
-.step-card h4 {
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-
-.step-card p {
-  font-size: 14px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  line-height: 1.6;
-}
-
-/* Hover effect */
-.step-card:hover {
-  transform: translateY(-6px);
-  transition: 0.3s ease;
-}
-
-/* Tablet */
+/* Mobile styles */
 @media (max-width: 992px) {
-  .steps-wrapper {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Mobile */
-@media (max-width: 576px) {
-  .steps-wrapper {
-    grid-template-columns: 1fr;
+  .mobile-nav-toggle {
+    display: block;
   }
 
-  .step-card::before {
-    width: 180px;
-    height: 180px;
-    top: -90px;
-  }
-}
-/* ===============================
-   About Us – Modern Redesign
-================================ */
-
-.about-modern {
-  background: linear-gradient(
-    135deg,
-    #ffffff 0%,
-    #f1f8f4 100%
-  );
-}
-
-.about-header {
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto 60px;
-}
-
-.about-badge {
-  display: inline-block;
-  background: color-mix(in srgb, var(--accent-color), transparent 90%);
-  color: var(--accent-color);
-  padding: 6px 16px;
-  border-radius: 50px;
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 14px;
-}
-
-.about-header h2 {
-  font-size: 42px;
-  margin-bottom: 12px;
-}
-
-.about-header p {
-  font-size: 16px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-}
-
-/* Story */
-.about-story {
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--default-color);
-}
-
-/* Image */
-.about-image {
-  max-width: 420px;
-  border-radius: 22px;
-  box-shadow: 0 16px 36px rgba(0,0,0,0.12);
-}
-
-/* Value cards */
-.about-values {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
-  margin-top: 60px;
-}
-
-.about-card {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 26px 20px;
-  text-align: center;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-  transition: 0.3s ease;
-}
-
-.about-card:hover {
-  transform: translateY(-6px);
-}
-
-.about-card h4 {
-  font-size: 18px;
-  margin-bottom: 8px;
-}
-
-.about-card p {
-  font-size: 14px;
-  color: color-mix(in srgb, var(--default-color), transparent 35%);
-}
-
-/* Tablet */
-@media (max-width: 992px) {
-  .about-values {
-    grid-template-columns: repeat(2, 1fr);
+  .navmenu {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 47, 29, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-100%);
+    transition: transform 0.35s ease;
+    z-index: 998;
   }
 
-  .about-image {
-    margin-top: 30px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 576px) {
-  .about-header h2 {
-    font-size: 32px;
-  }
-
-  .about-values {
-    grid-template-columns: 1fr;
-  }
-}
-/* ===============================
-   Microgreens – Profile Cards
-================================ */
-
-.micro-profile-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 26px;
-}
-
-.micro-profile {
-  display: flex;
-  background: #ffffff;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 14px 34px rgba(0,0,0,0.06);
-  transition: transform 0.3s ease;
-}
-
-.micro-profile:hover {
-  transform: translateY(-6px);
-}
-
-/* Left color strip */
-.micro-img {
-  width: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.micro-img img {
-  width: 54px;
-  height: 54px;
-  object-fit: contain;
-}
-
-/* Color variations */
-.bg-green { background: #2e7d32; }
-.bg-orange { background: #f57c00; }
-.bg-purple { background: #6a1b9a; }
-
-/* Right content */
-.micro-info {
-  padding: 18px 20px;
-  flex: 1;
-}
-
-.micro-info h4 {
-  font-size: 20px;
-  margin-bottom: 4px;
-}
-
-.micro-desc {
-  font-size: 14px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin-bottom: 14px;
-}
-
-/* Stats row */
-.micro-stats {
-  display: flex;
-  gap: 18px;
-  font-size: 13px;
-}
-
-.micro-stats div {
-  text-align: center;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-}
-
-.micro-stats span {
-  display: block;
-  font-weight: 600;
-  color: var(--heading-color);
-}
-
-/* Mobile */
-@media (max-width: 576px) {
-  .micro-img {
-    width: 70px;
-  }
-
-  .micro-img img {
-    width: 44px;
-    height: 44px;
-  }
-}
-/* ===============================
-   Microgreens – Modern Compact Grid
-================================ */
-
-.micro-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  justify-items: center;
-}
-
-/* Card */
-.micro-card {
-  width: 100%;
-  max-width: 300px;           /* compact width */
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
-  transition: transform 0.25s ease;
-}
-
-.micro-card:hover {
-  transform: translateY(-3px);
-}
-
-/* Image */
-.micro-img img {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  object-fit: contain;
-  background: #ffffff;
-  padding: 4px;
-}
-
-/* Text */
-.micro-info h4 {
-  margin: 0 0 4px;
-  font-size: 15px;
-  color: #1b5e20;
-}
-
-.micro-info p {
-  margin: 0;
-  font-size: 12.5px;
-  color: #4b5f4b;
-}
-
-/* Background colors */
-.bg-sunflower { background: #f4f9f2; }
-.bg-wheat     { background: #eef7f1; }
-.bg-mustard   { background: #fff8e6; }
-.bg-radish    { background: #fdeff2; }
-.bg-beet      { background: #f7eef6; }
-.bg-cabbage   { background: #f2effa; }
-
-/* Tablet */
-@media (max-width: 992px) {
-  .micro-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Mobile */
-@media (max-width: 576px) {
-  .micro-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .micro-card {
-    max-width: 100%;
-  }
-}
-/* ===============================
-   Contact – Business Card Style
-================================ */
-
-.contact-card {
-  max-width: 820px;
-  margin: 0 auto;
-  background: linear-gradient(135deg, #ffffff 0%, #f1f8f4 100%);
-  border-radius: 18px;
-  padding: 40px 50px;
-  display: flex;
-  gap: 40px;
-  align-items: center;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.06);
-}
-
-/* LEFT SIDE */
-.contact-left {
-  flex: 1;
-  text-align: center;
-  border-right: 1px solid rgba(0,0,0,0.06);
-  padding-right: 30px;
-}
-
-.contact-logo {
-  width: 64px;
-  margin-bottom: 14px;
-}
-
-.contact-left h3 {
-  margin: 0;
-  font-size: 26px;
-  color: #1b5e20;
-}
-
-.contact-tagline {
-  font-size: 14px;
-  color: #5f7c5f;
-  margin-top: 6px;
-}
-
-/* RIGHT SIDE */
-.contact-right {
-  flex: 1.2;
-}
-
-.contact-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 18px;
-  font-size: 15px;
-  color: #2f3e2f;
-}
-
-.contact-item span {
-  font-size: 18px;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .contact-card {
+  .navmenu ul {
     flex-direction: column;
-    padding: 30px 26px;
-    gap: 26px;
-  }
-
-  .contact-left {
-    border-right: none;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-    padding-right: 0;
-    padding-bottom: 20px;
-  }
-
-  .contact-right {
+    gap: 22px;
     text-align: center;
   }
 
-  .contact-item {
-    justify-content: center;
+  .navmenu a {
+    font-size: 20px;
+    color: #ffffff;
+  }
+
+  .navmenu a::after {
+    display: none;
+  }
+
+  .navmenu.active {
+    transform: translateY(0);
+  }
+
+  body.nav-open {
+    overflow: hidden;
   }
 }
